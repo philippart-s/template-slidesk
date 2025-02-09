@@ -1,15 +1,19 @@
 {
-	"name": "SliDesk",
-	"image": "wilda/jekyll:1.0.0",
+	"name": "Jekyll with SliDesk",
+	"image": "mcr.microsoft.com/devcontainers/jekyll:2-${templateOption:imageVariant}",
 
 	// 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
-	// "features": {},
+	 "features": {
+		"ghcr.io/philippart-s/feature-slidesk/slidesk:1.0.0": {}
+	 },
 
 	// 👇 Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
-	"postCreateCommand": "slidesk --version"
-
+	"postCreateCommand": {
+		"bundle": "bundle install",
+		"sliDesk": "slidesk --version"
+	}
 	// 👇 Configure tool-specific properties.
 	// "customizations": {},
 
